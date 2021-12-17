@@ -45,3 +45,13 @@ class Password extends ValueObject<String> {
     return Password._(validatePassword(input));
   }
 }
+
+class Username extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  const Username._(this.value);
+
+  factory Username(String input) {
+    return Username._(validateUsername(input));
+  }
+}

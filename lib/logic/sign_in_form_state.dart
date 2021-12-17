@@ -8,6 +8,7 @@ part 'sign_in_form_state.freezed.dart';
 @freezed
 abstract class SignInFormState with _$SignInFormState {
   const factory SignInFormState({
+    required Username username,
     required EmailAddress email,
     required Password password,
     required bool showPassword,
@@ -17,6 +18,7 @@ abstract class SignInFormState with _$SignInFormState {
   }) = _SignInFormState;
 
   factory SignInFormState.initial() => SignInFormState(
+        username: Username(''),
         email: EmailAddress(''),
         password: Password(''),
         showErrors: false,

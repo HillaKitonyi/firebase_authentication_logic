@@ -18,13 +18,15 @@ class _$SignInFormStateTearOff {
   const _$SignInFormStateTearOff();
 
   _SignInFormState call(
-      {required EmailAddress email,
+      {required Username username,
+      required EmailAddress email,
       required Password password,
       required bool showPassword,
       required bool loading,
       required bool showErrors,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _SignInFormState(
+      username: username,
       email: email,
       password: password,
       showPassword: showPassword,
@@ -40,6 +42,7 @@ const $SignInFormState = _$SignInFormStateTearOff();
 
 /// @nodoc
 mixin _$SignInFormState {
+  Username get username => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   bool get showPassword => throw _privateConstructorUsedError;
@@ -59,7 +62,8 @@ abstract class $SignInFormStateCopyWith<$Res> {
           SignInFormState value, $Res Function(SignInFormState) then) =
       _$SignInFormStateCopyWithImpl<$Res>;
   $Res call(
-      {EmailAddress email,
+      {Username username,
+      EmailAddress email,
       Password password,
       bool showPassword,
       bool loading,
@@ -78,6 +82,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? username = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? showPassword = freezed,
@@ -86,6 +91,10 @@ class _$SignInFormStateCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -122,7 +131,8 @@ abstract class _$SignInFormStateCopyWith<$Res>
       __$SignInFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {EmailAddress email,
+      {Username username,
+      EmailAddress email,
       Password password,
       bool showPassword,
       bool loading,
@@ -143,6 +153,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? username = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? showPassword = freezed,
@@ -151,6 +162,10 @@ class __$SignInFormStateCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_SignInFormState(
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -183,13 +198,16 @@ class __$SignInFormStateCopyWithImpl<$Res>
 
 class _$_SignInFormState implements _SignInFormState {
   const _$_SignInFormState(
-      {required this.email,
+      {required this.username,
+      required this.email,
       required this.password,
       required this.showPassword,
       required this.loading,
       required this.showErrors,
       required this.authFailureOrSuccessOption});
 
+  @override
+  final Username username;
   @override
   final EmailAddress email;
   @override
@@ -205,7 +223,7 @@ class _$_SignInFormState implements _SignInFormState {
 
   @override
   String toString() {
-    return 'SignInFormState(email: $email, password: $password, showPassword: $showPassword, loading: $loading, showErrors: $showErrors, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInFormState(username: $username, email: $email, password: $password, showPassword: $showPassword, loading: $loading, showErrors: $showErrors, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -213,6 +231,7 @@ class _$_SignInFormState implements _SignInFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SignInFormState &&
+            const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
@@ -227,6 +246,7 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(username),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(showPassword),
@@ -242,7 +262,8 @@ class _$_SignInFormState implements _SignInFormState {
 
 abstract class _SignInFormState implements SignInFormState {
   const factory _SignInFormState(
-      {required EmailAddress email,
+      {required Username username,
+      required EmailAddress email,
       required Password password,
       required bool showPassword,
       required bool loading,
@@ -250,6 +271,8 @@ abstract class _SignInFormState implements SignInFormState {
       required Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_SignInFormState;
 
+  @override
+  Username get username;
   @override
   EmailAddress get email;
   @override

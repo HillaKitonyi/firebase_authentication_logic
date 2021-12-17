@@ -11,3 +11,7 @@ Either<ValueFailure<String>, String> validateEmailAddress(String value) {
 Either<ValueFailure<String>, String> validatePassword(String value) {
   return value.length > 5 ? right(value) : left(ValueFailure.shortPassword(value));
 }
+
+Either<ValueFailure<String>, String> validateUsername(String value) {
+  return value.isNotEmpty ? right(value) : left(ValueFailure.isEmpty(value));
+}

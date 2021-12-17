@@ -14,6 +14,10 @@ class SignInFormNotifier extends StateNotifier<SignInFormState> {
   final FireAuthService authService;
   SignInFormNotifier(this.authService) : super(SignInFormState.initial());
 
+  void usernameChanged(String usernameString) {
+    state = state.copyWith(username: Username(usernameString), authFailureOrSuccessOption: none());
+  }
+
   void emailChanged(String emailString) {
     state = state.copyWith(email: EmailAddress(emailString), authFailureOrSuccessOption: none());
   }
